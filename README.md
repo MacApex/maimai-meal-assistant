@@ -1,5 +1,7 @@
 # 更懂你的麦麦选餐助手
 
+仓库地址：https://github.com/MacApex/maimai-meal-assistant
+
 ## 项目介绍
 
 一个人或几个人站在点餐页面前，卡住的往往不是"菜单里有什么"——查菜单 App 早就够了。
