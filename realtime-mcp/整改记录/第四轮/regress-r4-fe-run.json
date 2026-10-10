@@ -1,0 +1,79 @@
+{
+  "at": "2026-10-10T14:12:13.624Z",
+  "stage": "run",
+  "total": 10,
+  "passed": 10,
+  "note": "合成数据；零真实调用",
+  "results": [
+    {
+      "id": "R4-05",
+      "scene": "前端：改数量后旧报价响应不得绑定到新餐单",
+      "expect": "旧响应被丢弃，或页面显示为已过期；不得把 20 元显示为当前有效报价",
+      "actual": "旧响应已丢弃",
+      "pass": true
+    },
+    {
+      "id": "R4-06",
+      "scene": "前端：未改数量直接换单品，必须有合法数量",
+      "expect": "MAIN_B 的 quantity 为 ≥1 的整数；页面不出现 ×undefined / ¥NaN",
+      "actual": "换后 MAIN_B:1, SIDE_A:1, DRINK_A:1；页面「MOCK 高价汉堡 ×1 | MOCK 薯条 ×1 | MOCK 茶 ×1」",
+      "pass": true
+    },
+    {
+      "id": "R4-07",
+      "scene": "前端：换商品不得沿用旧商品专属规格",
+      "expect": "MAIN_B 不得携带 A_SAUCE",
+      "actual": "MAIN_B 无规格",
+      "pass": true
+    },
+    {
+      "id": "R4-08",
+      "scene": "前端：复制餐单不得把过期报价当作当前合计",
+      "expect": "过期报价必须标明待重算，不能作为当前官方合计",
+      "actual": "含过期标记：true",
+      "pass": true
+    },
+    {
+      "id": "R4-09",
+      "scene": "前端：复制餐单必须包含规格",
+      "expect": "复制文本含所选规格",
+      "actual": "含规格行",
+      "pass": true
+    },
+    {
+      "id": "R4-10",
+      "scene": "选餐：已有饮品且缺口为零时不再强制加饮品",
+      "expect": "1 人且已有 1 杯饮品 → 推荐中无额外饮品",
+      "actual": "推荐=[\"MAIN_A:1\",\"SIDE_A:1\"]",
+      "pass": true
+    },
+    {
+      "id": "R4-11",
+      "scene": "选餐：替换商品超出预算后必须明确提示并可调整",
+      "expect": "超预算被识别，且页面出现明确提示与调整入口",
+      "actual": "合计 50 元，overBudget=true；页面含提示=true",
+      "pass": true
+    },
+    {
+      "id": "R4-13",
+      "scene": "选餐：第 6 题「换一样」必须真的换一组商品",
+      "expect": "safe 与 swap 得到的主食不同，且 swapped=true，页面渲染同步更换",
+      "actual": "safe=[\"MAIN_A\",\"SIDE_A\",\"DRINK_A\"]；swap=[\"MAIN_B\",\"SIDE_A\",\"DRINK_A\"]；swapped=true；页面行=[\"MOCK 高价汉堡 ×1\",\"MOCK 薯条 ×1\",\"MOCK 茶 ×1\"]",
+      "pass": true
+    },
+    {
+      "id": "R4-14",
+      "scene": "结果页必须披露哪些答案没有参与计算",
+      "expect": "口味、多顿、记忆三类未生效答案都有明确说明",
+      "actual": "口味=true；多顿=true；记忆=true",
+      "pass": true
+    },
+    {
+      "id": "R4-12",
+      "scene": "页面无 JS 错误（离线反例运行期间）",
+      "expect": "errs.length===0",
+      "actual": "无",
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "at": "2026-10-10T14:24:38.519Z",
+  "textFiles": 35,
+  "binaryScanned": 24,
+  "total": 4,
+  "passed": 4,
+  "results": [
+    {
+      "id": "P-1",
+      "scene": "产物不含 MCP 凭据",
+      "expect": "任何文件（含 PNG）都不含凭据值",
+      "actual": "未发现（文本 35 个 + 位图 24 个已扫）",
+      "pass": true
+    },
+    {
+      "id": "P-2",
+      "scene": "产物不含个人账户隐私",
+      "expect": "不出现未脱敏手机号/地址ID/联系人/收货地址",
+      "actual": "未发现",
+      "pass": true
+    },
+    {
+      "id": "P-3",
+      "scene": "网页与网关源码不含硬编码凭据",
+      "expect": "无硬编码 Bearer 或 key",
+      "actual": "未发现",
+      "pass": true
+    },
+    {
+      "id": "P-4",
+      "scene": "前端不读取也不持有凭据",
+      "expect": "app.js 中不出现凭据读取",
+      "actual": "未发现",
+      "pass": true
+    }
+  ]
+}

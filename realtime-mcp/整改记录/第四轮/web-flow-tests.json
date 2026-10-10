@@ -1,0 +1,170 @@
+{
+  "at": "2026-10-10T14:15:15.429Z",
+  "total": 16,
+  "passed": 15,
+  "skipped": 1,
+  "failed": 0,
+  "pageErrors": [],
+  "results": [
+    {
+      "id": "E-01",
+      "scene": "网关不可用时显式失败",
+      "input": "\"断网关\"",
+      "expect": "显示失败原因并提供重试/换演示，不出现任何商品",
+      "actual": "显示「无法进入真实模式无法连接本机网关（http://127.0.0.1:8795）。请用…」",
+      "state": "pass",
+      "pass": true,
+      "shot": "/Users/maxima/Desktop/麦当劳创意开发WorkBuddy/07_WorkBuddy独立产出/真实MCP产品联调/证据/E-01-网关不可用.png"
+    },
+    {
+      "id": "E-02",
+      "scene": "进入真实模式先要求确认门店",
+      "input": "{\"step\":1}",
+      "expect": "门店对话框自动打开",
+      "actual": "门店确认框已打开",
+      "state": "pass",
+      "pass": true,
+      "shot": "/Users/maxima/Desktop/麦当劳创意开发WorkBuddy/07_WorkBuddy独立产出/真实MCP产品联调/证据/E-02-门店确认.png"
+    },
+    {
+      "id": "E-03",
+      "scene": "城市+关键词查到真实门店",
+      "input": "{\"city\":\"杭州\",\"keyword\":\"西湖\",\"候选\":5,\"跳过打烊\":[\"麦当劳杭州灵隐[地址已隐去] · \",\"[地址已隐去]商铺快捷小站西湖\",\"麦当劳杭州西湖区岳庙[地址已隐去]道西湖\"]}",
+      "expect": "候选 5 家，选中第 4 家（跳过 3 家打烊）",
+      "actual": true,
+      "state": "pass",
+      "pass": true,
+      "shot": null
+    },
+    {
+      "id": "E-04",
+      "scene": "加载真实菜单并标明来源与时间",
+      "input": "{}",
+      "expect": "显示门店、可售数量、更新时间、数据源",
+      "actual": "真实官方数据门店：麦当劳杭州西湖银泰餐厅 就餐方式：到店自提更新时间：2026-10-10T14:14:05.971Z 可售餐品 122 项",
+      "state": "pass",
+      "pass": true,
+      "shot": "/Users/maxima/Desktop/麦当劳创意开发WorkBuddy/07_WorkBuddy独立产出/真实MCP产品联调/证据/E-04-真实菜单.png"
+    },
+    {
+      "id": "E-05",
+      "scene": "第1题人数",
+      "input": "{\"people\":1}",
+      "expect": "进入第2题",
+      "actual": "第 2 / 8 题",
+      "state": "pass",
+      "pass": true,
+      "shot": null
+    },
+    {
+      "id": "E-06",
+      "scene": "八题后给出真实推荐",
+      "input": "{\"memBtns\":5}",
+      "expect": "推荐行数>0，且商品名来自真实菜单",
+      "actual": "推荐 3 行",
+      "state": "pass",
+      "pass": true,
+      "shot": "/Users/maxima/Desktop/麦当劳创意开发WorkBuddy/07_WorkBuddy独立产出/真实MCP产品联调/证据/E-06-真实推荐.png"
+    },
+    {
+      "id": "E-07",
+      "scene": "营养/过敏原未知不得推断",
+      "input": "{}",
+      "expect": "每行标注「营养/过敏原：未知」",
+      "actual": "3 处未知标记",
+      "state": "pass",
+      "pass": true,
+      "shot": null
+    },
+    {
+      "id": "E-08",
+      "scene": "调用官方接口算价",
+      "input": "{}",
+      "expect": "显示官方报价、商品金额、优惠、费用、总额",
+      "actual": "官方报价¥26.50牛肉堡单品精选 ×1 ¥14.00圆筒冰淇淋 ×1 ¥5.00纯悦 ×1 ¥7.50商品金额 ¥26.50 优惠 ¥0.00 其他费用 ¥0",
+      "state": "pass",
+      "pass": true,
+      "shot": "/Users/maxima/Desktop/麦当劳创意开发WorkBuddy/07_WorkBuddy独立产出/真实MCP产品联调/证据/E-08-官方报价.png"
+    },
+    {
+      "id": "E-09",
+      "scene": "改数量后报价立即标待重算",
+      "input": "{}",
+      "expect": "显示「报价已过期」并提供重新算价",
+      "actual": "报价已过期：餐单或门店有变动，上面的金额不再适用，请重新算价。重新算价",
+      "state": "pass",
+      "pass": true,
+      "shot": "/Users/maxima/Desktop/麦当劳创意开发WorkBuddy/07_WorkBuddy独立产出/真实MCP产品联调/证据/E-09-报价失效.png"
+    },
+    {
+      "id": "E-10",
+      "scene": "重新算价得到新官方金额",
+      "input": "{}",
+      "expect": "报价刷新且金额变化",
+      "actual": "官方报价¥40.50牛肉堡单品精选 ×2 ¥28.00圆筒冰淇淋 ×1 ¥5.00纯悦 ×1 ¥7.50商品金额 ¥40",
+      "state": "pass",
+      "pass": true,
+      "shot": "/Users/maxima/Desktop/麦当劳创意开发WorkBuddy/07_WorkBuddy独立产出/真实MCP产品联调/证据/E-10-重新算价.png"
+    },
+    {
+      "id": "E-15",
+      "scene": "替换单品为该门店其他可售商品",
+      "input": "{\"替换前\":[\"牛肉堡单品精选 ×2\",\"圆筒冰淇淋 ×1\",\"纯悦 ×1\"]}",
+      "expect": "可选项>0，且替换后餐单确实变化",
+      "actual": "可换 12 个；牛肉堡单品精选 ×2、圆筒冰淇淋 ×1 → 培根蔬萃双层牛堡 ×2、圆筒冰淇淋 ×1",
+      "state": "pass",
+      "pass": true,
+      "shot": "/Users/maxima/Desktop/麦当劳创意开发WorkBuddy/07_WorkBuddy独立产出/真实MCP产品联调/证据/E-15-替换单品.png"
+    },
+    {
+      "id": "E-16",
+      "scene": "替换单品后报价需重算",
+      "input": "{}",
+      "expect": "报价标记为待重算",
+      "actual": "未标记（可能尚未算价）",
+      "state": "pass",
+      "pass": true,
+      "shot": null
+    },
+    {
+      "id": "E-11",
+      "scene": "打开真实规格",
+      "input": "{}",
+      "expect": "弹层打开；有规格则列出，无规格须明确说明",
+      "actual": "弹层已开，规格 5 项",
+      "state": "pass",
+      "pass": true,
+      "shot": "/Users/maxima/Desktop/麦当劳创意开发WorkBuddy/07_WorkBuddy独立产出/真实MCP产品联调/证据/E-11-规格弹层.png"
+    },
+    {
+      "id": "E-12",
+      "scene": "改规格后报价失效",
+      "input": "{\"规格项数\":5,\"规格所在行\":1}",
+      "expect": "报价标记为待重算（当前餐单签名与报价绑定签名不一致）",
+      "actual": "已标记待重算；有报价=true；签名一致=false",
+      "state": "pass",
+      "pass": true,
+      "shot": "/Users/maxima/Desktop/麦当劳创意开发WorkBuddy/07_WorkBuddy独立产出/真实MCP产品联调/证据/E-12-规格后失效.png"
+    },
+    {
+      "id": "E-13",
+      "scene": "换门店后重新加载并作废旧报价",
+      "input": "{}",
+      "expect": "新门店菜单加载成功，且旧报价已标待重算",
+      "actual": "未能选出第二家营业门店：locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.store').first()\u001b[22m\n\u001b[2m    - locator resolved to <button class=\"store\" type=\"button\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    58 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
+      "state": "skip",
+      "pass": false,
+      "shot": null
+    },
+    {
+      "id": "E-14",
+      "scene": "页面与脚本不含凭据",
+      "input": "{\"check\":\"html\"}",
+      "expect": "HTML 中无 Authorization/Bearer",
+      "actual": "未发现",
+      "state": "pass",
+      "pass": true,
+      "shot": null
+    }
+  ]
+}

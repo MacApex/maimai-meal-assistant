@@ -1,0 +1,80 @@
+:root{
+ --yellow:#FFBC0D; --cream:#FFF8E7; --ink:#1A1A1A; --muted:#6B6257; --line:#E4D9C3;
+ --ok:#0A7C42; --warn:#B45309; --bad:#B91C1C; --card:#fff;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--cream);color:var(--ink);
+ font:16px/1.55 -apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif}
+.top{display:flex;align-items:center;gap:10px;padding:12px 16px;background:var(--yellow);
+ position:sticky;top:0;z-index:20;border-bottom:3px solid var(--ink)}
+.brand{font-size:20px;font-weight:900;letter-spacing:.5px}
+.mode-badge{margin-left:auto;background:var(--ink);color:var(--yellow);font-size:12px;
+ font-weight:800;padding:4px 10px;border-radius:999px;white-space:nowrap}
+button{font:inherit;cursor:pointer;border-radius:12px;min-height:44px;padding:10px 16px}
+.cta{background:var(--yellow);border:3px solid var(--ink);font-weight:900}
+.cta:disabled{opacity:.45;cursor:not-allowed}
+.ghost{background:transparent;border:2px solid var(--ink);font-weight:700}
+main{max-width:720px;margin:0 auto;padding:16px}
+.loading,.muted{color:var(--muted)}
+.hint{font-size:13px;color:var(--muted);min-height:20px;margin:8px 0 0}
+.hidden{display:none!important}
+.field{margin:12px 0}
+.field label{display:block;font-weight:800;font-size:14px;margin-bottom:6px}
+input,select{width:100%;padding:12px;border:2px solid var(--ink);border-radius:12px;
+ background:#fff;font:inherit;min-height:44px}
+.seg{display:flex;gap:8px}
+.seg button{flex:1;border:2px solid var(--ink);background:#fff;font-weight:700}
+.seg button[aria-pressed=true]{background:var(--yellow);font-weight:900}
+.row{display:flex;gap:10px;align-items:center}
+.row.end{justify-content:flex-end;margin-top:16px}
+dialog{border:3px solid var(--ink);border-radius:16px;padding:20px;max-width:460px;width:92vw;background:#fff}
+dialog::backdrop{background:rgba(0,0,0,.45)}
+h2{margin:0 0 6px;font-size:20px;font-weight:900}
+h3{margin:0 0 4px;font-size:17px;font-weight:900}
+.store{display:block;width:100%;text-align:left;background:#fff;border:2px solid var(--line);
+ border-radius:12px;padding:12px;margin-top:8px}
+.store[aria-pressed=true]{border-color:var(--ink);background:var(--yellow);font-weight:800}
+.store .meta{font-size:13px;color:var(--muted);font-weight:400;margin-top:2px}
+.src{background:#fff;border:2px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:12px;font-size:13px}
+.src b{font-weight:900}
+.src .t{color:var(--muted);margin-top:3px}
+.step{background:var(--card);border:3px solid var(--ink);border-radius:18px;padding:16px;margin-bottom:14px}
+.step .n{font-size:12px;font-weight:800;color:var(--muted);letter-spacing:.5px}
+.step .q{font-size:21px;font-weight:900;margin:4px 0 12px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px}
+.opts button{border:2px solid var(--ink);background:#fff;font-weight:700;padding:12px 10px}
+.opts button[aria-pressed=true]{background:var(--yellow);font-weight:900;box-shadow:0 0 0 2px var(--ink)}
+.opts .v{font-size:22px;font-weight:900;display:block}
+.row-item{display:flex;align-items:center;gap:10px;background:#fff;border:2px solid var(--line);
+ border-radius:12px;padding:10px 12px;margin-top:8px;flex-wrap:wrap}
+/* 操作按钮较多（−/数量/+/规格/换一个），必须允许换行，
+   否则会把商品名挤成竖排一个字一行。可用宽度不足时按钮整体下移一行。 */
+.row-item .info{flex:1 1 55%;min-width:0}
+.row-item .info strong{font-weight:900;display:block;overflow-wrap:anywhere}
+.row-item .info p{margin:2px 0 0;font-size:13px;color:var(--muted)}
+.row-item .price{flex:0 0 auto}
+.row-item .qty{display:flex;align-items:center;gap:6px;flex:0 0 auto;margin-left:auto}
+.row-item .qty button{padding:6px 10px;min-height:44px}
+@media (max-width:360px){
+ .row-item .info{flex:1 1 100%}
+ .row-item .qty{flex:1 1 100%;justify-content:flex-end;margin-left:0}
+}
+.foot{background:var(--ink);color:#fff;border-radius:16px;padding:14px;margin-top:14px}
+.foot .l{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.foot .t{font-size:26px;font-weight:900;color:var(--yellow)}
+.foot .d{font-size:12px;opacity:.8;margin-top:6px;line-height:1.7}
+.stale{background:#FEF3C7;border:2px solid var(--warn);border-radius:12px;padding:12px;font-size:14px;margin-top:10px}
+.err{background:#FEE2E2;border:2px solid var(--bad);border-radius:12px;padding:12px;margin:10px 0}
+.err b{color:var(--bad)}
+.unknown{font-size:12px;color:var(--warn);border:1px dashed var(--warn);border-radius:8px;padding:2px 6px;display:inline-block}
+.ok{color:var(--ok);font-weight:800}
+.warn{color:var(--warn);font-weight:800}
+#toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(20px);
+ background:var(--ink);color:#fff;padding:12px 18px;border-radius:12px;font-weight:700;
+ opacity:0;transition:.2s;pointer-events:none;max-width:88vw;z-index:60}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.sum{display:flex;justify-content:space-between;align-items:baseline;padding:6px 0;font-size:14px}
+.sum.big{font-size:20px;font-weight:900;border-top:2px solid var(--line);margin-top:6px;padding-top:10px}.locked{}
+.price{font-weight:900;white-space:nowrap}
+.qty .n{min-width:26px;text-align:center;font-weight:900}

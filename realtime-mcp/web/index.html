@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>麦麦选餐 · 真实门店模式</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">麦麦选餐</div>
+  <div class="mode-badge" id="modeBadge">真实官方数据</div>
+  <button class="cta" data-a="classic">经典自主选餐</button>
+  <button class="ghost" data-a="switch-demo">切到演示体验</button>
+</header>
+
+<main id="app"><p class="loading">正在检查本地网关…</p></main>
+
+<!-- 门店确认：真实模式的必经第一步 -->
+<dialog id="storeDlg">
+  <div class="dlg-body">
+    <h2>先确认门店与就餐方式</h2>
+    <p class="muted">真实模式只使用该门店当前实际可售的菜单与官方报价。</p>
+    <div class="field"><label>城市</label><input id="city" placeholder="例如：杭州" autocomplete="off"></div>
+    <div class="field"><label>关键词</label><input id="kw" placeholder="例如：西湖、灵隐" autocomplete="off"></div>
+    <button type="button" class="cta" data-a="search-store">查找门店</button>    <p class="hint" id="storeMsg"></p>
+    <div id="storeList"></div>
+    <div class="field hidden" id="modeWrap">
+      <label>就餐方式</label>
+      <div class="seg">
+        <button type="button" data-a="pick-mode" data-v="1">到店自提</button>
+        <button type="button" data-a="pick-mode" data-v="5">得来速</button>
+      </div>
+    </div>
+    <div class="field hidden" id="slotWrap">
+      <label>适用时段</label>
+      <select id="slot"></select>
+    </div>
+    <div class="row end">
+      <button type="button" class="ghost" data-a="close-store">取消</button>
+      <button type="button" class="cta" id="confirm-store" data-a="confirm-store" disabled>用这家店</button>
+    </div>
+  </div>
+</dialog>
+
+<!-- 替换单品 -->
+<dialog id="swapDlg">
+  <div class="dlg-body">
+    <h2 id="swapTitle">换一个</h2>
+    <div id="swapBody"></div>
+    <div class="row end"><button type="button" class="ghost" data-a="close-swap">关闭</button></div>
+  </div>
+</dialog>
+
+<!-- 规格选择 -->
+<dialog id="specDlg">
+  <div class="dlg-body">
+    <h2 id="specTitle">选择规格</h2>
+    <div id="specBody"></div>
+    <p class="hint" id="specMsg"></p>
+    <div class="row end">
+      <button type="button" class="ghost" data-a="close-spec">取消</button>
+      <button type="button" class="cta" id="confirm-spec" data-a="confirm-spec" disabled>确定</button>
+    </div>
+  </div>
+</dialog>
+
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,485 @@
+{
+  "generatedAt": "2026-10-10T07:06:31.038Z",
+  "standalone": {
+    "path": "06_GitHub待提交包/standalone/index.html",
+    "sha256": "40a4ba1846795ef90fda31905a18c215006374800f0a78d95217af08066ad01a"
+  },
+  "entries": [
+    {
+      "target": "开发 app",
+      "file": "demo-data.js",
+      "state": "一致",
+      "expected": "2a4365e405de",
+      "actual": "2a4365e405de"
+    },
+    {
+      "target": "开发 app",
+      "file": "memory-store.js",
+      "state": "一致",
+      "expected": "759a8a0f6669",
+      "actual": "759a8a0f6669"
+    },
+    {
+      "target": "开发 app",
+      "file": "domain.js",
+      "state": "一致",
+      "expected": "ba857826b19d",
+      "actual": "ba857826b19d"
+    },
+    {
+      "target": "开发 app",
+      "file": "wizard-domain.js",
+      "state": "一致",
+      "expected": "df368f743bf4",
+      "actual": "df368f743bf4"
+    },
+    {
+      "target": "开发 app",
+      "file": "meal-engine.js",
+      "state": "一致",
+      "expected": "a774b26a486a",
+      "actual": "a774b26a486a"
+    },
+    {
+      "target": "开发 app",
+      "file": "data-adapter.js",
+      "state": "一致",
+      "expected": "a91061393096",
+      "actual": "a91061393096"
+    },
+    {
+      "target": "开发 app",
+      "file": "mcp-transport.js",
+      "state": "一致",
+      "expected": "03887a5c266b",
+      "actual": "03887a5c266b"
+    },
+    {
+      "target": "开发 app",
+      "file": "step-view.js",
+      "state": "一致",
+      "expected": "daa4a0992fff",
+      "actual": "daa4a0992fff"
+    },
+    {
+      "target": "开发 app",
+      "file": "wizard-app.js",
+      "state": "一致",
+      "expected": "16c509214dd6",
+      "actual": "16c509214dd6"
+    },
+    {
+      "target": "开发 app",
+      "file": "wizard.css",
+      "state": "一致",
+      "expected": "f6a908877087",
+      "actual": "f6a908877087"
+    },
+    {
+      "target": "开发 app",
+      "file": "index.html",
+      "state": "一致",
+      "expected": "ee12f200057d",
+      "actual": "ee12f200057d"
+    },
+    {
+      "target": "提交包 app",
+      "file": "demo-data.js",
+      "state": "一致",
+      "expected": "2a4365e405de",
+      "actual": "2a4365e405de"
+    },
+    {
+      "target": "提交包 app",
+      "file": "memory-store.js",
+      "state": "一致",
+      "expected": "759a8a0f6669",
+      "actual": "759a8a0f6669"
+    },
+    {
+      "target": "提交包 app",
+      "file": "domain.js",
+      "state": "一致",
+      "expected": "ba857826b19d",
+      "actual": "ba857826b19d"
+    },
+    {
+      "target": "提交包 app",
+      "file": "wizard-domain.js",
+      "state": "一致",
+      "expected": "df368f743bf4",
+      "actual": "df368f743bf4"
+    },
+    {
+      "target": "提交包 app",
+      "file": "meal-engine.js",
+      "state": "一致",
+      "expected": "a774b26a486a",
+      "actual": "a774b26a486a"
+    },
+    {
+      "target": "提交包 app",
+      "file": "data-adapter.js",
+      "state": "一致",
+      "expected": "a91061393096",
+      "actual": "a91061393096"
+    },
+    {
+      "target": "提交包 app",
+      "file": "mcp-transport.js",
+      "state": "一致",
+      "expected": "03887a5c266b",
+      "actual": "03887a5c266b"
+    },
+    {
+      "target": "提交包 app",
+      "file": "step-view.js",
+      "state": "一致",
+      "expected": "daa4a0992fff",
+      "actual": "daa4a0992fff"
+    },
+    {
+      "target": "提交包 app",
+      "file": "wizard-app.js",
+      "state": "一致",
+      "expected": "16c509214dd6",
+      "actual": "16c509214dd6"
+    },
+    {
+      "target": "提交包 app",
+      "file": "wizard.css",
+      "state": "一致",
+      "expected": "f6a908877087",
+      "actual": "f6a908877087"
+    },
+    {
+      "target": "提交包 app",
+      "file": "index.html",
+      "state": "一致",
+      "expected": "ee12f200057d",
+      "actual": "ee12f200057d"
+    },
+    {
+      "target": "外层 Skill",
+      "file": "demo-data.js",
+      "state": "一致",
+      "expected": "2a4365e405de",
+      "actual": "2a4365e405de"
+    },
+    {
+      "target": "外层 Skill",
+      "file": "memory-store.js",
+      "state": "一致",
+      "expected": "759a8a0f6669",
+      "actual": "759a8a0f6669"
+    },
+    {
+      "target": "外层 Skill",
+      "file": "domain.js",
+      "state": "一致",
+      "expected": "ba857826b19d",
+      "actual": "ba857826b19d"
+    },
+    {
+      "target": "外层 Skill",
+      "file": "wizard-domain.js",
+      "state": "一致",
+      "expected": "df368f743bf4",
+      "actual": "df368f743bf4"
+    },
+    {
+      "target": "外层 Skill",
+      "file": "meal-engine.js",
+      "state": "一致",
+      "expected": "a774b26a486a",
+      "actual": "a774b26a486a"
+    },
+    {
+      "target": "外层 Skill",
+      "file": "data-adapter.js",
+      "state": "一致",
+      "expected": "a91061393096",
+      "actual": "a91061393096"
+    },
+    {
+      "target": "外层 Skill",
+      "file": "mcp-transport.js",
+      "state": "一致",
+      "expected": "03887a5c266b",
+      "actual": "03887a5c266b"
+    },
+    {
+      "target": "外层 Skill",
+      "file": "step-view.js",
+      "state": "一致",
+      "expected": "daa4a0992fff",
+      "actual": "daa4a0992fff"
+    },
+    {
+      "target": "外层 Skill",
+      "file": "wizard-app.js",
+      "state": "一致",
+      "expected": "16c509214dd6",
+      "actual": "16c509214dd6"
+    },
+    {
+      "target": "外层 Skill",
+      "file": "run-meal.js",
+      "state": "一致",
+      "expected": "b1b42f6687f6",
+      "actual": "b1b42f6687f6"
+    },
+    {
+      "target": "包内 Skill",
+      "file": "demo-data.js",
+      "state": "一致",
+      "expected": "2a4365e405de",
+      "actual": "2a4365e405de"
+    },
+    {
+      "target": "包内 Skill",
+      "file": "memory-store.js",
+      "state": "一致",
+      "expected": "759a8a0f6669",
+      "actual": "759a8a0f6669"
+    },
+    {
+      "target": "包内 Skill",
+      "file": "domain.js",
+      "state": "一致",
+      "expected": "ba857826b19d",
+      "actual": "ba857826b19d"
+    },
+    {
+      "target": "包内 Skill",
+      "file": "wizard-domain.js",
+      "state": "一致",
+      "expected": "df368f743bf4",
+      "actual": "df368f743bf4"
+    },
+    {
+      "target": "包内 Skill",
+      "file": "meal-engine.js",
+      "state": "一致",
+      "expected": "a774b26a486a",
+      "actual": "a774b26a486a"
+    },
+    {
+      "target": "包内 Skill",
+      "file": "data-adapter.js",
+      "state": "一致",
+      "expected": "a91061393096",
+      "actual": "a91061393096"
+    },
+    {
+      "target": "包内 Skill",
+      "file": "mcp-transport.js",
+      "state": "一致",
+      "expected": "03887a5c266b",
+      "actual": "03887a5c266b"
+    },
+    {
+      "target": "包内 Skill",
+      "file": "step-view.js",
+      "state": "一致",
+      "expected": "daa4a0992fff",
+      "actual": "daa4a0992fff"
+    },
+    {
+      "target": "包内 Skill",
+      "file": "wizard-app.js",
+      "state": "一致",
+      "expected": "16c509214dd6",
+      "actual": "16c509214dd6"
+    },
+    {
+      "target": "包内 Skill",
+      "file": "run-meal.js",
+      "state": "一致",
+      "expected": "b1b42f6687f6",
+      "actual": "b1b42f6687f6"
+    },
+    {
+      "target": "提交包 app",
+      "file": "build-all.js",
+      "state": "存在",
+      "expected": "d593e64a42bc",
+      "actual": "d593e64a42bc"
+    },
+    {
+      "target": "提交包 app",
+      "file": "build-standalone.js",
+      "state": "存在",
+      "expected": "68bfe63aad51",
+      "actual": "68bfe63aad51"
+    },
+    {
+      "target": "提交包 app",
+      "file": "secret-scan.js",
+      "state": "存在",
+      "expected": "410fbc3d2009",
+      "actual": "410fbc3d2009"
+    },
+    {
+      "target": "提交包 assets",
+      "file": "hero.webp",
+      "state": "一致",
+      "expected": "b992edaa0a3f",
+      "actual": "b992edaa0a3f"
+    },
+    {
+      "target": "提交包 assets",
+      "file": "crispy.webp",
+      "state": "一致",
+      "expected": "fdbe488e6729",
+      "actual": "fdbe488e6729"
+    },
+    {
+      "target": "提交包 assets",
+      "file": "fries.webp",
+      "state": "一致",
+      "expected": "354cd319eb8a",
+      "actual": "354cd319eb8a"
+    },
+    {
+      "target": "提交包 assets",
+      "file": "tea.webp",
+      "state": "一致",
+      "expected": "03473941ff59",
+      "actual": "03473941ff59"
+    },
+    {
+      "target": "提交包 assets",
+      "file": "burger.webp",
+      "state": "一致",
+      "expected": "71cf20b5f29c",
+      "actual": "71cf20b5f29c"
+    },
+    {
+      "target": "提交包 assets",
+      "file": "wings.webp",
+      "state": "一致",
+      "expected": "c90e78b492a5",
+      "actual": "c90e78b492a5"
+    },
+    {
+      "target": "提交包 assets",
+      "file": "nuggets.webp",
+      "state": "一致",
+      "expected": "646bd00bb79d",
+      "actual": "646bd00bb79d"
+    },
+    {
+      "target": "提交包 assets",
+      "file": "pie.webp",
+      "state": "一致",
+      "expected": "101a3ec3f61a",
+      "actual": "101a3ec3f61a"
+    },
+    {
+      "target": "提交包 assets",
+      "file": "coffee.webp",
+      "state": "一致",
+      "expected": "b61590a86e75",
+      "actual": "b61590a86e75"
+    },
+    {
+      "target": "提交包 assets",
+      "file": "fish.webp",
+      "state": "一致",
+      "expected": "caa4af3cc3ae",
+      "actual": "caa4af3cc3ae"
+    },
+    {
+      "target": "提交包 assets",
+      "file": "wrap.webp",
+      "state": "一致",
+      "expected": "8854543c3caa",
+      "actual": "8854543c3caa"
+    },
+    {
+      "target": "提交包 assets",
+      "file": "corn.webp",
+      "state": "一致",
+      "expected": "3ca6a9134742",
+      "actual": "3ca6a9134742"
+    },
+    {
+      "target": "提交包 assets",
+      "file": "cake.webp",
+      "state": "一致",
+      "expected": "146e3e22b469",
+      "actual": "146e3e22b469"
+    },
+    {
+      "target": "提交包 assets",
+      "file": "sundae.webp",
+      "state": "一致",
+      "expected": "2c7ee8068d02",
+      "actual": "2c7ee8068d02"
+    },
+    {
+      "target": "提交包 assets",
+      "file": "milk.webp",
+      "state": "一致",
+      "expected": "583b609d0e33",
+      "actual": "583b609d0e33"
+    },
+    {
+      "target": "提交包 assets",
+      "file": "juice.webp",
+      "state": "一致",
+      "expected": "323697b963e9",
+      "actual": "323697b963e9"
+    },
+    {
+      "target": "单 HTML",
+      "file": "demo-data.js",
+      "state": "一致",
+      "expected": "2a4365e405de",
+      "actual": "2a4365e405de"
+    },
+    {
+      "target": "单 HTML",
+      "file": "memory-store.js",
+      "state": "一致",
+      "expected": "759a8a0f6669",
+      "actual": "759a8a0f6669"
+    },
+    {
+      "target": "单 HTML",
+      "file": "domain.js",
+      "state": "一致",
+      "expected": "ba857826b19d",
+      "actual": "ba857826b19d"
+    },
+    {
+      "target": "单 HTML",
+      "file": "wizard-domain.js",
+      "state": "一致",
+      "expected": "df368f743bf4",
+      "actual": "df368f743bf4"
+    },
+    {
+      "target": "单 HTML",
+      "file": "meal-engine.js",
+      "state": "一致",
+      "expected": "a774b26a486a",
+      "actual": "a774b26a486a"
+    },
+    {
+      "target": "单 HTML",
+      "file": "step-view.js",
+      "state": "一致",
+      "expected": "daa4a0992fff",
+      "actual": "daa4a0992fff"
+    },
+    {
+      "target": "单 HTML",
+      "file": "wizard-app.js",
+      "state": "一致",
+      "expected": "16c509214dd6",
+      "actual": "16c509214dd6"
+    }
+  ]
+}

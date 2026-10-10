@@ -1,0 +1,282 @@
+=== 启动本次服务 (gateway=8795 web=8796) ===
+本次服务 runId=run-mv2auqtt-b5931c
+代码 hash gateway.js=aafb48f494906a886c5b5d4803200a22dc911cf70107e2f92d7ab6d0eba1f40b (与磁盘一致)
+
+--- 离线反例-网关侧 ---
+✅ R4-01 网关：切店后旧报价响应不得标成新门店
+   期望: 返回 409/stale，或返回的 quote 明确属于 MOCK_A，不得标为 MOCK_B
+   实际: HTTP 409，{"ok":false,"code":"STALE","error":"门店或上下文已变更，该报价已作废","stale":true}
+✅ R4-02 网关：切换门店后旧报价不得被判为有效
+   期望: 切换门店后 hasQuote=false 或 quoteStale=true
+   实际: hasQuote=false，quoteStale=true
+✅ R4-03 网关：上游错误消息不得原样返回浏览器
+   期望: 响应中不出现 CANARY_SECRET_DO_NOT_ECHO；应映射为稳定的公开错误码
+   实际: 未泄漏 canary（{"ok":false,"code":"UPSTREAM_FAILED","error":"官方接口暂时不可用，请稍后重试"}）
+✅ R4-04 网关：仅本项目前端端口的 Origin 被放行
+   期望: 非配置端口的 Origin 不得获得 access-control-allow-origin
+   实际: HTTP 403，ACAO=(无)
+
+=== 4/4 通过（stage=run）===
+[PASS] 离线反例-网关侧  退出码=0  通过=0/4  跳过=0
+
+--- 离线反例-前端 ---
+✅ R4-05 前端：改数量后旧报价响应不得绑定到新餐单
+   期望: 旧响应被丢弃，或页面显示为已过期；不得把 20 元显示为当前有效报价
+   实际: 旧响应已丢弃
+✅ R4-06 前端：未改数量直接换单品，必须有合法数量
+   期望: MAIN_B 的 quantity 为 ≥1 的整数；页面不出现 ×undefined / ¥NaN
+   实际: 换后 MAIN_B:1, SIDE_A:1, DRINK_A:1；页面「MOCK 高价汉堡 ×1 | MOCK 薯条 ×1 | MOCK 茶 ×1」
+✅ R4-07 前端：换商品不得沿用旧商品专属规格
+   期望: MAIN_B 不得携带 A_SAUCE
+   实际: MAIN_B 无规格
+✅ R4-08 前端：复制餐单不得把过期报价当作当前合计
+   期望: 过期报价必须标明待重算，不能作为当前官方合计
+   实际: 含过期标记：true
+✅ R4-09 前端：复制餐单必须包含规格
+   期望: 复制文本含所选规格
+   实际: 含规格行
+✅ R4-10 选餐：已有饮品且缺口为零时不再强制加饮品
+   期望: 1 人且已有 1 杯饮品 → 推荐中无额外饮品
+   实际: 推荐=["MAIN_A:1","SIDE_A:1"]
+✅ R4-11 选餐：替换商品超出预算后必须明确提示并可调整
+   期望: 超预算被识别，且页面出现明确提示与调整入口
+   实际: 合计 50 元，overBudget=true；页面含提示=true
+✅ R4-12 页面无 JS 错误（离线反例运行期间）
+   期望: errs.length===0
+   实际: 无
+
+=== 8/8 通过（stage=run）===
+[PASS] 离线反例-前端  退出码=0  通过=8/8  跳过=0
+
+--- 网关安全 ---
+已获取会话令牌，长度 48（值不回显）
+✅ G-apicreate-order 写操作路径不存在：/api/create-order
+   期望: 返回 404 且带稳定 code，不透传内部信息
+   实际: HTTP 404 code=NOT_FOUND 错误=未找到可用的数据
+✅ G-apidraw-lottery 写操作路径不存在：/api/draw-lottery
+   期望: 返回 404 且带稳定 code，不透传内部信息
+   实际: HTTP 404 code=NOT_FOUND 错误=未找到可用的数据
+✅ G-apiauto-bind-coupons 写操作路径不存在：/api/auto-bind-coupons
+   期望: 返回 404 且带稳定 code，不透传内部信息
+   实际: HTTP 404 code=NOT_FOUND 错误=未找到可用的数据
+✅ G-apicancel-order 写操作路径不存在：/api/cancel-order
+   期望: 返回 404 且带稳定 code，不透传内部信息
+   实际: HTTP 404 code=NOT_FOUND 错误=未找到可用的数据
+✅ G-apimall-create-order 写操作路径不存在：/api/mall-create-order
+   期望: 返回 404 且带稳定 code，不透传内部信息
+   实际: HTTP 404 code=NOT_FOUND 错误=未找到可用的数据
+✅ G-apidelivery-create-address 写操作路径不存在：/api/delivery-create-address
+   期望: 返回 404 且带稳定 code，不透传内部信息
+   实际: HTTP 404 code=NOT_FOUND 错误=未找到可用的数据
+✅ G-health 健康检查如实声明写操作未开放
+   期望: writeOpsEnabled=false 且列出只读工具
+   实际: writeOpsEnabled=false，只读工具 12 个
+✅ G-preapimenu 未选门店时拒绝 /api/menu
+   期望: 返回 400 并说明需先选门店
+   实际: HTTP 400 请先选择门店
+✅ G-preapidetail 未选门店时拒绝 /api/detail
+   期望: 返回 400 并说明需先选门店
+   实际: HTTP 400 请先选择门店
+✅ G-preapiprice 未选门店时拒绝 /api/price
+   期望: 返回 400 并说明需先选门店
+   实际: HTTP 400 尚未选择门店
+✅ G-store1 搜店缺关键词时拒绝
+   期望: 400 并说明需城市+关键词
+   实际: HTTP 400 需要同时提供城市与关键词（上游要求两者齐备）
+✅ G-origin 跨域来源被拒绝
+   期望: 403 跨域来源被拒绝
+   实际: HTTP 403 请求来源不被允许
+✅ G-host 非本机 Host 被拒绝
+   期望: 403 仅允许本机访问
+   实际: HTTP 403 请求来源不被允许
+✅ G-limit 单次算价商品数超限被拒
+   期望: 400 提示最多 20
+   实际: HTTP 400 单次算价商品数超限（最多20）
+✅ G-secret 接口响应不含 MCP 凭据
+   期望: 响应体中不出现凭据值
+   实际: 未发现
+✅ G-priv 门店列表不含个人账户字段
+   期望: 不出现 addressId/contactName/phone/fullAddress/traceId
+   实际: 无
+✅ G-stale 换门店后用旧 ctxVersion 算价被拒
+   期望: 409 提示上下文已变更
+   实际: HTTP 409 上下文已变更，请重新算价
+
+=== 17/17 通过 ===
+[PASS] 网关安全  退出码=0  通过=0/17  跳过=0
+
+--- 纵向流程 ---
+✅ E-01 网关不可用时显式失败
+   期望: 显示失败原因并提供重试/换演示，不出现任何商品
+   实际: 显示「无法进入真实模式无法连接本机网关（http://127.0.0.1:8795）。请用…」
+   截图: E-01-网关不可用.png
+✅ E-02 进入真实模式先要求确认门店
+   期望: 门店对话框自动打开
+   实际: 门店确认框已打开
+   截图: E-02-门店确认.png
+node:internal/process/promises:394
+    triggerUncaughtException(err, true /* fromPromise */);
+    ^
+
+page.fill: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('#city')[22m
+[2m    - locator resolved to <input id="city" autocomplete="off" placeholder="例如：杭州"/>[22m
+[2m    - fill("杭州")[22m
+[2m  - attempting fill action[22m
+[2m    2 × waiting for element to be visible, enabled and editable[22m
+[2m      - element is not visible[22m
+[2m    - retrying fill action[22m
+[2m    - waiting 20ms[22m
+[2m    2 × waiting for element to be visible, enabled and editable[22m
+[2m      - element is not visible[22m
+[2m    - retrying fill action[22m
+[2m      - waiting 100ms[22m
+[2m    60 × waiting for element to be visible, enabled and editable[22m
+[2m       - element is not visible[22m
+[2m     - retrying fill action[22m
+[2m       - waiting 500ms[22m
+
+    at pickOpenStore (/Users/maxima/Desktop/麦当劳创意开发WorkBuddy/07_WorkBuddy独立产出/真实MCP产品联调/test/_open-store.cjs:29:13)
+    at async /Users/maxima/Desktop/麦当劳创意开发WorkBuddy/07_WorkBuddy独立产出/真实MCP产品联调/test/web-flow.cjs:58:13 {
+  log: [
+    "  - waiting for locator('#city')",
+    '    - locator resolved to <input id="city" autocomplete="off" placeholder="例如：杭州"/>',
+    '    - fill("杭州")',
+    '  - attempting fill action',
+    '    2 × waiting for element to be visible, enabled and editable',
+    '      - element is not visible',
+    '    - retrying fill action',
+    '    - waiting 20ms',
+    '    2 × waiting for element to be visible, enabled and editable',
+    '      - element is not visible',
+    '    - retrying fill action',
+    '      - waiting 100ms',
+    '    60 × waiting for element to be visible, enabled and editable',
+    '       - element is not visible',
+    '     - retrying fill action',
+    '       - waiting 500ms'
+  ],
+  name: 'TimeoutError'
+}
+
+Node.js v22.22.2
+[FAIL] 纵向流程  退出码=1  通过=0/16  跳过=0
+
+--- 补充场景 ---
+node:internal/process/promises:394
+    triggerUncaughtException(err, true /* fromPromise */);
+    ^
+
+page.fill: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('#city')[22m
+[2m    - locator resolved to <input id="city" autocomplete="off" placeholder="例如：杭州"/>[22m
+[2m    - fill("杭州")[22m
+[2m  - attempting fill action[22m
+[2m    2 × waiting for element to be visible, enabled and editable[22m
+[2m      - element is not visible[22m
+[2m    - retrying fill action[22m
+[2m    - waiting 20ms[22m
+[2m    2 × waiting for element to be visible, enabled and editable[22m
+[2m      - element is not visible[22m
+[2m    - retrying fill action[22m
+[2m      - waiting 100ms[22m
+[2m    60 × waiting for element to be visible, enabled and editable[22m
+[2m       - element is not visible[22m
+[2m     - retrying fill action[22m
+[2m       - waiting 500ms[22m
+
+    at pickOpenStore (/Users/maxima/Desktop/麦当劳创意开发WorkBuddy/07_WorkBuddy独立产出/真实MCP产品联调/test/_open-store.cjs:29:13)
+    at async setupStore (/Users/maxima/Desktop/麦当劳创意开发WorkBuddy/07_WorkBuddy独立产出/真实MCP产品联调/test/web-scenarios.cjs:24:2)
+    at async /Users/maxima/Desktop/麦当劳创意开发WorkBuddy/07_WorkBuddy独立产出/真实MCP产品联调/test/web-scenarios.cjs:41:2 {
+  log: [
+    "  - waiting for locator('#city')",
+    '    - locator resolved to <input id="city" autocomplete="off" placeholder="例如：杭州"/>',
+    '    - fill("杭州")',
+    '  - attempting fill action',
+    '    2 × waiting for element to be visible, enabled and editable',
+    '      - element is not visible',
+    '    - retrying fill action',
+    '    - waiting 20ms',
+    '    2 × waiting for element to be visible, enabled and editable',
+    '      - element is not visible',
+    '    - retrying fill action',
+    '      - waiting 100ms',
+    '    60 × waiting for element to be visible, enabled and editable',
+    '       - element is not visible',
+    '     - retrying fill action',
+    '       - waiting 500ms'
+  ],
+  name: 'TimeoutError'
+}
+
+Node.js v22.22.2
+[FAIL] 补充场景  退出码=1  通过=0/4  跳过=0
+
+--- 五入口一致性 ---
+✅ C-1a 开发工作区五入口一致
+✅ C-1b 独立待提交包五入口一致
+✅ C-2a 改坏提交包 app 的模块
+✅ C-2b 改坏包内 Skill 的模块（R3-01 漏同步入口）
+✅ C-2c 改坏外层 Skill（若包内存在）
+✅ C-2d 删除包内 Skill 必需模块
+✅ C-2e 改坏提交包 CSS
+✅ C-2f 改坏单 HTML 内嵌模块段
+✅ C-2g 在单 HTML 标记段之外注入内容
+✅ C-3 单 HTML（演示版）不含真实接入痕迹
+
+=== 10/10 通过 ===
+[PASS] 五入口一致性  退出码=0  通过=0/10  跳过=0
+
+--- 隐私自检 ---
+✅ P-1 产物不含 MCP 凭据
+✅ P-2 产物不含个人账户隐私
+✅ P-3 网页与网关源码不含硬编码凭据
+✅ P-4 前端不读取也不持有凭据
+
+=== 4/4 通过 ===
+[PASS] 隐私自检  退出码=0  通过=0/4  跳过=0
+
+--- 响应式与缩放 ---
+✅ RS-320 320×568 布局
+✅ RS-390 390×844 布局
+✅ RS-1024 1024×768 布局
+✅ RS-1440 1440×900 布局
+✅ RS-200% 200% 放大
+✅ RS-classic 经典自主选餐（320px）
+
+=== 6/6 通过 ===
+[PASS] 响应式与缩放  退出码=0  通过=6/6  跳过=0
+
+--- 报价重算校验 (真实网关) ---
+本次服务 runId=run-mv2auqtt-b5931c  sourceSha=aafb48f49490
+
+/Users/maxima/Desktop/麦当劳创意开发WorkBuddy/07_WorkBuddy独立产出/真实MCP产品联调/test/quote-recheck.cjs:49
+ const pick=await pickOpenStore(p,'杭州','西湖');
+            ^
+
+ReferenceError: pickOpenStore is not defined
+    at /Users/maxima/Desktop/麦当劳创意开发WorkBuddy/07_WorkBuddy独立产出/真实MCP产品联调/test/quote-recheck.cjs:49:13
+    at runNextTicks (node:internal/process/task_queues:64:5)
+    at process.processImmediate (node:internal/timers:452:9)
+    at process.callbackTrampoline (node:internal/async_hooks:130:17)
+
+Node.js v22.22.2
+[FAIL] 报价重算校验  退出码=1  通过=0/3  跳过=0
+
+==============================================
+ 汇总
+  离线反例-网关侧 PASS 退出码=0   通过=0/4 跳过=0
+  离线反例-前端    PASS 退出码=0   通过=8/8 跳过=0
+  网关安全           PASS 退出码=0   通过=0/17 跳过=0
+  纵向流程           FAIL 退出码=1   通过=0/16 跳过=0
+  补充场景           FAIL 退出码=1   通过=0/4 跳过=0
+  五入口一致性     PASS 退出码=0   通过=0/10 跳过=0
+  隐私自检           PASS 退出码=0   通过=0/4 跳过=0
+  响应式与缩放     PASS 退出码=0   通过=6/6 跳过=0
+  报价重算校验     FAIL 退出码=1   通过=0/3 跳过=0
+ 运行身份 runId=run-mv2auqtt-b5931c
+ 代码 hash gateway.js=aafb48f494906a886c5b5d4803200a22dc911cf70107e2f92d7ab6d0eba1f40b
+==============================================
+存在必需测试失败：整体返回非零退出码。

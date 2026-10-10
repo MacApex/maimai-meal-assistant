@@ -1,0 +1,49 @@
+{
+  "at": "2026-10-10T14:05:42.800Z",
+  "stage": "post",
+  "total": 4,
+  "passed": 4,
+  "failed": 0,
+  "results": [
+    {
+      "id": "R4-01",
+      "scene": "网关：切店后旧报价响应不得标成新门店",
+      "expect": "返回 409/stale，或返回的 quote 明确属于 MOCK_A，不得标为 MOCK_B",
+      "actual": "HTTP 409，{\"ok\":false,\"code\":\"STALE\",\"error\":\"门店或上下文已变更，该报价已作废\",\"stale\":true}",
+      "pass": true,
+      "stage": "post",
+      "evidence": {
+        "upstreamSawStore": "MOCK_A",
+        "v1": 1,
+        "v2": 2
+      }
+    },
+    {
+      "id": "R4-02",
+      "scene": "网关：切换门店后旧报价不得被判为有效",
+      "expect": "切换门店后 hasQuote=false 或 quoteStale=true",
+      "actual": "hasQuote=false，quoteStale=true",
+      "pass": true,
+      "stage": "post",
+      "evidence": null
+    },
+    {
+      "id": "R4-03",
+      "scene": "网关：上游错误消息不得原样返回浏览器",
+      "expect": "响应中不出现 CANARY_SECRET_DO_NOT_ECHO；应映射为稳定的公开错误码",
+      "actual": "未泄漏 canary（{\"ok\":false,\"code\":\"UPSTREAM_FAILED\",\"error\":\"官方接口暂时不可用，请稍后重试\"}）",
+      "pass": true,
+      "stage": "post",
+      "evidence": null
+    },
+    {
+      "id": "R4-04",
+      "scene": "网关：仅本项目前端端口的 Origin 被放行",
+      "expect": "非配置端口的 Origin 不得获得 access-control-allow-origin",
+      "actual": "HTTP 403，ACAO=(无)",
+      "pass": true,
+      "stage": "post",
+      "evidence": null
+    }
+  ]
+}

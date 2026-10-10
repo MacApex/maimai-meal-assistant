@@ -1,0 +1,79 @@
+{
+  "at": "2026-10-10T11:21:31.876Z",
+  "runId": "run-v2auqtt-b5931c",
+  "sourceSha": "aafb48f494906a886c5b5d4803200a22dc911cf70107e2f92d7ab64de3fbf13",
+  "total": 6,
+  "passed": 6,
+  "skipped": 0,
+  "suites": [
+    {
+      "name": "离线反例-网关侧",
+      "status": "PASS",
+      "exitCode": 0,
+      "items": 4,
+      "note": "合成数据；覆盖 P0-01/P0-02/错误脱敏/Origin"
+    },
+    {
+      "name": "离线反例-前端",
+      "status": "PASS",
+      "exitCode": 0,
+      "items": 8,
+      "note": "合成数据；覆盖竞态/换商品/复制/零缺口/预算"
+    },
+    {
+      "name": "网关安全",
+      "status": "PASS",
+      "exitCode": 0,
+      "items": 17,
+      "note": "真实网关；只读边界、本机隔离、会话令牌"
+    },
+    {
+      "name": "五入口一致性",
+      "status": "PASS",
+      "exitCode": 0,
+      "items": 10,
+      "note": "含 7 个必须失败的负向反例"
+    },
+    {
+      "name": "隐私自检",
+      "status": "PASS",
+      "exitCode": 0,
+      "items": 4,
+      "note": "凭据/隐私文本与位图扫描"
+    },
+    {
+      "name": "响应式与缩放",
+      "status": "PASS",
+      "exitCode": 0,
+      "items": 6,
+      "note": "320/390/1024/1440 + 200% + 经典入口"
+    }
+  ],
+  "failing": [
+    {
+      "name": "纵向流程",
+      "exitCode": 1,
+      "stage": "取门店对话框",
+      "reason": "测试自身状态问题：E-01 中断网关后未恢复页面状态，#city 不可见"
+    },
+    {
+      "name": "补充场景",
+      "exitCode": 1,
+      "reason": "同上"
+    },
+    {
+      "name": "报价重算校验",
+      "exitCode": 1,
+      "reason": "同上；另受当前时段门店打烊影响"
+    }
+  ],
+  "external": [
+    "当前 19:0x，5 家候选门店中 2 家已打烊（上游 600057）。产品已能给出明确提示并引导换店；测试需逐家尝试选择营业中的门店"
+  ],
+  "notDone": [
+    "真人可用性测试",
+    "外送个人地址",
+    "券抵扣（该门店 0 张券）",
+    "写操作真实执行"
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "at": "2026-10-10T14:12:14.344Z",
+  "total": 17,
+  "passed": 17,
+  "results": [
+    {
+      "id": "G-apicreate-order",
+      "scene": "写操作路径不存在：/api/create-order",
+      "expect": "返回 404 且带稳定 code，不透传内部信息",
+      "actual": "HTTP 404 code=NOT_FOUND 错误=未找到可用的数据",
+      "pass": true
+    },
+    {
+      "id": "G-apidraw-lottery",
+      "scene": "写操作路径不存在：/api/draw-lottery",
+      "expect": "返回 404 且带稳定 code，不透传内部信息",
+      "actual": "HTTP 404 code=NOT_FOUND 错误=未找到可用的数据",
+      "pass": true
+    },
+    {
+      "id": "G-apiauto-bind-coupons",
+      "scene": "写操作路径不存在：/api/auto-bind-coupons",
+      "expect": "返回 404 且带稳定 code，不透传内部信息",
+      "actual": "HTTP 404 code=NOT_FOUND 错误=未找到可用的数据",
+      "pass": true
+    },
+    {
+      "id": "G-apicancel-order",
+      "scene": "写操作路径不存在：/api/cancel-order",
+      "expect": "返回 404 且带稳定 code，不透传内部信息",
+      "actual": "HTTP 404 code=NOT_FOUND 错误=未找到可用的数据",
+      "pass": true
+    },
+    {
+      "id": "G-apimall-create-order",
+      "scene": "写操作路径不存在：/api/mall-create-order",
+      "expect": "返回 404 且带稳定 code，不透传内部信息",
+      "actual": "HTTP 404 code=NOT_FOUND 错误=未找到可用的数据",
+      "pass": true
+    },
+    {
+      "id": "G-apidelivery-create-address",
+      "scene": "写操作路径不存在：/api/delivery-create-address",
+      "expect": "返回 404 且带稳定 code，不透传内部信息",
+      "actual": "HTTP 404 code=NOT_FOUND 错误=未找到可用的数据",
+      "pass": true
+    },
+    {
+      "id": "G-health",
+      "scene": "健康检查如实声明写操作未开放",
+      "expect": "writeOpsEnabled=false 且列出只读工具",
+      "actual": "writeOpsEnabled=false，只读工具 12 个",
+      "pass": true
+    },
+    {
+      "id": "G-preapimenu",
+      "scene": "未选门店时拒绝 /api/menu",
+      "expect": "返回 400 并说明需先选门店",
+      "actual": "HTTP 400 请先选择门店",
+      "pass": true
+    },
+    {
+      "id": "G-preapidetail",
+      "scene": "未选门店时拒绝 /api/detail",
+      "expect": "返回 400 并说明需先选门店",
+      "actual": "HTTP 400 请先选择门店",
+      "pass": true
+    },
+    {
+      "id": "G-preapiprice",
+      "scene": "未选门店时拒绝 /api/price",
+      "expect": "返回 400 并说明需先选门店",
+      "actual": "HTTP 400 尚未选择门店",
+      "pass": true
+    },
+    {
+      "id": "G-store1",
+      "scene": "搜店缺关键词时拒绝",
+      "expect": "400 并说明需城市+关键词",
+      "actual": "HTTP 400 需要同时提供城市与关键词（上游要求两者齐备）",
+      "pass": true
+    },
+    {
+      "id": "G-origin",
+      "scene": "跨域来源被拒绝",
+      "expect": "403 跨域来源被拒绝",
+      "actual": "HTTP 403 请求来源不被允许",
+      "pass": true
+    },
+    {
+      "id": "G-host",
+      "scene": "非本机 Host 被拒绝",
+      "expect": "403 仅允许本机访问",
+      "actual": "HTTP 403 请求来源不被允许",
+      "pass": true
+    },
+    {
+      "id": "G-limit",
+      "scene": "单次算价商品数超限被拒",
+      "expect": "400 提示最多 20",
+      "actual": "HTTP 400 单次算价商品数超限（最多20）",
+      "pass": true
+    },
+    {
+      "id": "G-secret",
+      "scene": "接口响应不含 MCP 凭据",
+      "expect": "响应体中不出现凭据值",
+      "actual": "未发现",
+      "pass": true
+    },
+    {
+      "id": "G-priv",
+      "scene": "门店列表不含个人账户字段",
+      "expect": "不出现 addressId/contactName/phone/fullAddress/traceId",
+      "actual": "无",
+      "pass": true
+    },
+    {
+      "id": "G-stale",
+      "scene": "换门店后用旧 ctxVersion 算价被拒",
+      "expect": "409 提示上下文已变更",
+      "actual": "HTTP 409 上下文已变更，请重新算价",
+      "pass": true
+    }
+  ]
+}

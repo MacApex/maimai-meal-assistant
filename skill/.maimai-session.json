@@ -1,0 +1,140 @@
+{
+  "wizard": {
+    "step": 8,
+    "completed": false,
+    "answers": [
+      {
+        "status": "answered",
+        "value": 2,
+        "source": "explicit",
+        "at": "2026-10-09T16:09:20.206Z"
+      },
+      {
+        "status": "answered",
+        "value": {
+          "mode": "total",
+          "minor": 8000
+        },
+        "source": "explicit",
+        "at": "2026-10-09T16:09:20.225Z"
+      },
+      {
+        "status": "answered",
+        "value": {
+          "coffee": 1,
+          "otherDrink": 0,
+          "main": 0,
+          "side": 0,
+          "amountConfidence": "exact",
+          "confirmed": true
+        },
+        "source": "explicit",
+        "at": "2026-10-09T16:09:20.242Z"
+      },
+      {
+        "status": "answered",
+        "value": {
+          "words": [
+            "香脆",
+            "微辣"
+          ]
+        },
+        "source": "explicit",
+        "at": "2026-10-09T16:09:20.261Z"
+      },
+      {
+        "status": "answered",
+        "value": null,
+        "source": "explicit",
+        "at": "2026-10-09T16:09:20.277Z"
+      },
+      {
+        "status": "answered",
+        "value": {
+          "mode": "swap",
+          "familiar": []
+        },
+        "source": "explicit",
+        "at": "2026-10-09T16:09:20.295Z"
+      },
+      {
+        "status": "answered",
+        "value": {
+          "length": 3
+        },
+        "source": "explicit",
+        "at": "2026-10-09T16:09:20.313Z"
+      },
+      {
+        "status": "answered",
+        "value": {
+          "consent": {
+            "useSavedTaste": false,
+            "useSavedSelections": false,
+            "saveExplicitTaste": false,
+            "saveFinalSelection": false,
+            "saveRotationPlan": false
+          }
+        },
+        "source": "explicit",
+        "at": "2026-10-09T16:09:20.331Z"
+      }
+    ],
+    "inputCount": 8,
+    "decisionCount": 0,
+    "revision": 8,
+    "startedAt": null,
+    "submittedAt": null,
+    "pendingRevalidation": []
+  },
+  "state": {
+    "route": "home",
+    "context": {
+      "mode": "demo",
+      "storeId": null,
+      "channel": "到店取餐",
+      "reservationAt": null,
+      "revision": 0,
+      "feeMinor": 0
+    },
+    "constraints": {
+      "people": 2,
+      "portion": "regular",
+      "taste": null,
+      "budget": {
+        "mode": "total",
+        "minor": 8000
+      },
+      "avoid": [],
+      "personPrefs": {}
+    },
+    "external": {
+      "coffee": 1,
+      "otherDrink": 0,
+      "main": 0,
+      "side": 0,
+      "amountConfidence": "exact",
+      "confirmed": true
+    },
+    "locks": [],
+    "recommendation": null,
+    "cart": [],
+    "categoryId": "c0",
+    "scrollByRoute": {},
+    "consent": false,
+    "preferences": [],
+    "revision": 0,
+    "cartRevision": 0,
+    "appliedActions": [],
+    "quoteStatus": "demo",
+    "undo": null,
+    "seenSignatures": []
+  },
+  "consent": {
+    "useSavedTaste": false,
+    "useSavedSelections": false,
+    "saveExplicitTaste": false,
+    "saveFinalSelection": false,
+    "saveRotationPlan": false
+  }
+}

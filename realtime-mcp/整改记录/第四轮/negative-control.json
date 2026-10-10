@@ -1,0 +1,106 @@
+{
+  "at": "2026-10-10T10:00:50.130Z",
+  "note": "撤销单处修复后对应用例是否变红；变红说明用例有判别力",
+  "total": 8,
+  "detected": 5,
+  "results": [
+    {
+      "id": "N-01",
+      "desc": "doQuote 的返回后校验被短路（还原为 await 后才取签名）",
+      "applied": true,
+      "expectedToFail": [
+        "R4-05"
+      ],
+      "actuallyFailed": [],
+      "detected": false,
+      "note": "撤销后用例仍通过 → 用例对该修复不敏感"
+    },
+    {
+      "id": "N-01b",
+      "desc": "（配套）把签名改成 await 之后才取",
+      "applied": true,
+      "expectedToFail": [
+        "R4-05"
+      ],
+      "actuallyFailed": [],
+      "detected": false,
+      "note": "撤销后用例仍通过 → 用例对该修复不敏感"
+    },
+    {
+      "id": "N-02",
+      "desc": "替换单品时数量取自菜单条目（item.qty 不存在）",
+      "applied": true,
+      "expectedToFail": [
+        "R4-06"
+      ],
+      "actuallyFailed": [
+        "R4-06"
+      ],
+      "detected": true,
+      "note": "撤销该修复后对应用例变红"
+    },
+    {
+      "id": "N-03",
+      "desc": "旧商品规格直接移交给新商品",
+      "applied": true,
+      "expectedToFail": [
+        "R4-07"
+      ],
+      "actuallyFailed": [
+        "R4-07"
+      ],
+      "detected": true,
+      "note": "撤销该修复后对应用例变红"
+    },
+    {
+      "id": "N-04",
+      "desc": "复制餐单时把过期报价写成当前合计",
+      "applied": true,
+      "expectedToFail": [
+        "R4-08"
+      ],
+      "actuallyFailed": [
+        "R4-08"
+      ],
+      "detected": true,
+      "note": "撤销该修复后对应用例变红"
+    },
+    {
+      "id": "N-05",
+      "desc": "复制餐单不输出规格",
+      "applied": true,
+      "expectedToFail": [
+        "R4-09"
+      ],
+      "actuallyFailed": [
+        "R4-09"
+      ],
+      "detected": true,
+      "note": "撤销该修复后对应用例变红"
+    },
+    {
+      "id": "N-06",
+      "desc": "零缺口也强制加一杯饮品（Math.max(1,needDrink)）",
+      "applied": true,
+      "expectedToFail": [
+        "R4-10"
+      ],
+      "actuallyFailed": [
+        "R4-10"
+      ],
+      "detected": true,
+      "note": "撤销该修复后对应用例变红"
+    },
+    {
+      "id": "N-07",
+      "desc": "沿用锁组合那一刻的可行性，不重算预算与覆盖",
+      "applied": true,
+      "expectedToFail": [
+        "R4-11"
+      ],
+      "actuallyFailed": [],
+      "detected": false,
+      "note": "撤销后用例仍通过 → 用例对该修复不敏感"
+    }
+  ]
+}

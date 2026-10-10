@@ -1,0 +1,67 @@
+{
+  "at": "2026-10-10T14:23:52.739Z",
+  "total": 4,
+  "passed": 4,
+  "skipped": 0,
+  "failed": 0,
+  "pageErrors": [],
+  "results": [
+    {
+      "id": "S-A",
+      "scene": "预算内无可行组合时如实告知",
+      "input": {
+        "people": 1,
+        "budget": 10
+      },
+      "expect": "明确说明预算内无解并给出尝试规模",
+      "actual": "已提示：已超出预算当前合计 26.5 元，预算 10 元",
+      "state": "pass",
+      "pass": true,
+      "screenshot": "/Users/maxima/Desktop/麦当劳创意开发WorkBuddy/07_WorkBuddy独立产出/真实MCP产品联调/证据/S-A-预算无解.png"
+    },
+    {
+      "id": "S-B",
+      "scene": "多人且已有饮品时按缺口补",
+      "input": {
+        "people": 4,
+        "ext": 2,
+        "items": [
+          "牛肉堡单品精选×4",
+          "圆筒冰淇淋×2",
+          "纯悦×2"
+        ],
+        "total": 8100
+      },
+      "expect": "饮品份数 = 4 − 2 = 2",
+      "actual": "饮品为 纯悦×2；主食等共 3 项，合计 ¥81",
+      "state": "pass",
+      "pass": true,
+      "screenshot": "/Users/maxima/Desktop/麦当劳创意开发WorkBuddy/07_WorkBuddy独立产出/真实MCP产品联调/证据/S-B-多人补缺口.png"
+    },
+    {
+      "id": "S-C",
+      "scene": "官方算价失败时明确提示且旧价不冒充现价",
+      "input": {
+        "已成功报价": "¥26.50",
+        "注入": "502"
+      },
+      "expect": "提示失败；旧报价若保留必须标为已过期",
+      "actual": "提示：算价失败：模拟：上游算价失败（测试注入）；旧价节点=1；过期标记=1",
+      "state": "pass",
+      "pass": true,
+      "screenshot": "/Users/maxima/Desktop/麦当劳创意开发WorkBuddy/07_WorkBuddy独立产出/真实MCP产品联调/证据/S-C-算价失败.png"
+    },
+    {
+      "id": "S-D",
+      "scene": "菜单接口失败时不得用演示数据冒充",
+      "input": {
+        "注入": "502"
+      },
+      "expect": "显示失败原因与重试入口，且不出现任何商品",
+      "actual": "显示：菜单加载失败：模拟：菜单接口失败（测试注入）真实模式不会用演示菜单代替失败的请求。重试换一家…",
+      "state": "pass",
+      "pass": true,
+      "screenshot": "/Users/maxima/Desktop/麦当劳创意开发WorkBuddy/07_WorkBuddy独立产出/真实MCP产品联调/证据/S-D-菜单失败.png"
+    }
+  ]
+}

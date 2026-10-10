@@ -1,0 +1,9 @@
+{
+  "checkedAt": "2026-10-09T15:33:01.232Z",
+  "endpoint": "https://mcp.mcd.cn",
+  "httpStatus": 401,
+  "contentType": "text/plain;charset=UTF-8",
+  "mcpSessionIdPresent": false,
+  "serverResponse": "当前鉴权码不存在或已失效!",
+  "conclusion": "服务器可达并返回了业务层错误响应，说明网络与端点正常；但当前 Token 未通过鉴权。initialize 未成功，tools/list 未执行，任何工具能力均未验证。"
+}

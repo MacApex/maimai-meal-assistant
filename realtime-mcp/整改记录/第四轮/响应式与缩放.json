@@ -1,0 +1,58 @@
+{
+  "at": "2026-10-10T14:24:43.757Z",
+  "stage": "run",
+  "total": 6,
+  "passed": 6,
+  "skipped": 0,
+  "note": "合成菜单；仅验证布局与可读性，不涉及真实调用",
+  "results": [
+    {
+      "id": "RS-320",
+      "scene": "320×568 布局",
+      "expect": "无横向溢出；关键元素可见；点击目标 ≥44px；页面无 JS 错误",
+      "actual": "溢出=false（320/320）行数=3 过小按钮=0 错误=0",
+      "pass": true,
+      "screenshot": "/Users/maxima/Desktop/麦当劳创意开发WorkBuddy/07_WorkBuddy独立产出/真实MCP产品联调/证据/responsive/R-320.png"
+    },
+    {
+      "id": "RS-390",
+      "scene": "390×844 布局",
+      "expect": "无横向溢出；关键元素可见；点击目标 ≥44px；页面无 JS 错误",
+      "actual": "溢出=false（390/390）行数=3 过小按钮=0 错误=0",
+      "pass": true,
+      "screenshot": "/Users/maxima/Desktop/麦当劳创意开发WorkBuddy/07_WorkBuddy独立产出/真实MCP产品联调/证据/responsive/R-390.png"
+    },
+    {
+      "id": "RS-1024",
+      "scene": "1024×768 布局",
+      "expect": "无横向溢出；关键元素可见；点击目标 ≥44px；页面无 JS 错误",
+      "actual": "溢出=false（1024/1024）行数=3 过小按钮=0 错误=0",
+      "pass": true,
+      "screenshot": "/Users/maxima/Desktop/麦当劳创意开发WorkBuddy/07_WorkBuddy独立产出/真实MCP产品联调/证据/responsive/R-1024.png"
+    },
+    {
+      "id": "RS-1440",
+      "scene": "1440×900 布局",
+      "expect": "无横向溢出；关键元素可见；点击目标 ≥44px；页面无 JS 错误",
+      "actual": "溢出=false（1440/1440）行数=3 过小按钮=0 错误=0",
+      "pass": true,
+      "screenshot": "/Users/maxima/Desktop/麦当劳创意开发WorkBuddy/07_WorkBuddy独立产出/真实MCP产品联调/证据/responsive/R-1440.png"
+    },
+    {
+      "id": "RS-200%",
+      "scene": "200% 放大",
+      "expect": "放大后仍无横向溢出；商品名保持可读行高；无 JS 错误",
+      "actual": "溢出=false 行数=3 名称行高正常=true 错误=0",
+      "pass": true,
+      "screenshot": "/Users/maxima/Desktop/麦当劳创意开发WorkBuddy/07_WorkBuddy独立产出/真实MCP产品联调/证据/responsive/R-200%.png"
+    },
+    {
+      "id": "RS-classic",
+      "scene": "经典自主选餐（320px）",
+      "expect": "可进入；分类可见；无横向溢出；无 JS 错误",
+      "actual": "分类标题=3 溢出=false 错误=0",
+      "pass": true,
+      "screenshot": "/Users/maxima/Desktop/麦当劳创意开发WorkBuddy/07_WorkBuddy独立产出/真实MCP产品联调/证据/responsive/R-classic-320.png"
+    }
+  ]
+}

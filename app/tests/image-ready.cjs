@@ -1,0 +1,2 @@
+const assert=require('node:assert/strict');
+module.exports=async page=>{const images=await page.locator('img').evaluateAll(async nodes=>{await Promise.all(nodes.map(n=>n.decode()));await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));return nodes.map(n=>({src:n.getAttribute('src').slice(0,100),complete:n.complete,width:n.naturalWidth,height:n.naturalHeight}));});assert.ok(images.every(n=>n.complete&&n.width>0&&n.height>0),'all visible images must finish decoding');return images;};

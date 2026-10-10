@@ -1,0 +1,77 @@
+{
+  "at": "2026-10-10T14:24:36.952Z",
+  "total": 10,
+  "passed": 10,
+  "results": [
+    {
+      "id": "C-1a",
+      "scene": "开发工作区五入口一致",
+      "expect": "退出码 0",
+      "actual": "退出码 0",
+      "pass": true
+    },
+    {
+      "id": "C-1b",
+      "scene": "独立待提交包五入口一致",
+      "expect": "退出码 0",
+      "actual": "退出码 0",
+      "pass": true
+    },
+    {
+      "id": "C-2a",
+      "scene": "改坏提交包 app 的模块",
+      "expect": "退出码非 0（必须检出漂移）",
+      "actual": "退出码 1",
+      "pass": true
+    },
+    {
+      "id": "C-2b",
+      "scene": "改坏包内 Skill 的模块（R3-01 漏同步入口）",
+      "expect": "退出码非 0（必须检出漂移）",
+      "actual": "退出码 1",
+      "pass": true
+    },
+    {
+      "id": "C-2c",
+      "scene": "改坏外层 Skill（若包内存在）",
+      "expect": "退出码非 0（必须检出漂移）",
+      "actual": "退出码 1",
+      "pass": true
+    },
+    {
+      "id": "C-2d",
+      "scene": "删除包内 Skill 必需模块",
+      "expect": "退出码非 0（必须检出漂移）",
+      "actual": "退出码 1",
+      "pass": true
+    },
+    {
+      "id": "C-2e",
+      "scene": "改坏提交包 CSS",
+      "expect": "退出码非 0（必须检出漂移）",
+      "actual": "退出码 1",
+      "pass": true
+    },
+    {
+      "id": "C-2f",
+      "scene": "改坏单 HTML 内嵌模块段",
+      "expect": "退出码非 0（必须检出漂移）",
+      "actual": "退出码 1",
+      "pass": true
+    },
+    {
+      "id": "C-2g",
+      "scene": "在单 HTML 标记段之外注入内容",
+      "expect": "退出码非 0（必须检出漂移）",
+      "actual": "退出码 1",
+      "pass": true
+    },
+    {
+      "id": "C-3",
+      "scene": "单 HTML（演示版）不含真实接入痕迹",
+      "expect": "不含网关地址/凭据名/上游域名",
+      "actual": "未发现",
+      "pass": true
+    }
+  ]
+}

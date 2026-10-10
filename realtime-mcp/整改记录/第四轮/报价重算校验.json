@@ -1,0 +1,35 @@
+{
+  "at": "2026-10-10T14:26:39.359Z",
+  "runId": "run-mv2h3njr-0ea6a9",
+  "sourceSha": "aa78e4eb37fb824202eb80374c62c9f8bcf77f6f48c98bdbf67f078ae9e6c011",
+  "total": 3,
+  "passed": 3,
+  "skipped": 0,
+  "note": "真实网关真实算价；断言基于本次请求/响应，不依赖旧 DOM",
+  "results": [
+    {
+      "id": "E-10",
+      "scene": "改数量后重新算价：验证本次新响应而非旧 DOM",
+      "expect": "本次请求的 cartSignature 与当前餐单一致；返回金额与页面一致；过期标记消失；金额确实变化",
+      "actual": "新增调用=1；发送签名匹配=true；返回签名匹配=true；页面金额=4050 返回金额=4050；与首次报价(2650)不同=true；过期标记=false",
+      "pass": true,
+      "screenshot": "/Users/maxima/Desktop/麦当劳创意开发WorkBuddy/07_WorkBuddy独立产出/真实MCP产品联调/证据/E-10-重算校验.png"
+    },
+    {
+      "id": "E-12",
+      "scene": "真正修改规格后重新算价：验证本次新响应",
+      "expect": "规格变更使签名改变；请求确实带上 modification；返回与新签名匹配；过期标记消失",
+      "actual": "该餐品无规格（官方返回 supportModify=false），场景不适用，已如实说明",
+      "pass": true,
+      "screenshot": "/Users/maxima/Desktop/麦当劳创意开发WorkBuddy/07_WorkBuddy独立产出/真实MCP产品联调/证据/E-12-规格重算校验.png"
+    },
+    {
+      "id": "E-13",
+      "scene": "页面 JS 错误",
+      "expect": "errs.length===0",
+      "actual": "无",
+      "pass": true,
+      "screenshot": null
+    }
+  ]
+}
