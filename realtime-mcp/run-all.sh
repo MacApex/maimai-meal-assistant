@@ -103,9 +103,9 @@ run_suite() {
   "$NODE" "$ROOT/test/$script" --stage "$STAGE"
   local rc=$?
   local passed=0 skipped=0
-  if [ -n "$base" ] && [ -f "$ROOT/整改记录/第四轮/$base.json" ]; then
-    passed=$(json_field "$ROOT/整改记录/第四轮/$base.json" passed)
-    skipped=$(json_field "$ROOT/整改记录/第四轮/$base.json" skipped)
+  if [ -n "$base" ] && [ -f "$ROOT/证据/第四轮/$base.json" ]; then
+    passed=$(json_field "$ROOT/证据/第四轮/$base.json" passed)
+    skipped=$(json_field "$ROOT/证据/第四轮/$base.json" skipped)
   fi
   record "$name" "$rc" "$exp" "$passed" "$skipped"
   echo ""
@@ -123,7 +123,7 @@ run_suite "响应式与缩放"    "responsive.cjs"       6  "响应式与缩放"
 echo "--- 报价重算校验 (真实网关) ---"
 "$NODE" "$ROOT/test/quote-recheck.cjs"
 RC=$?
-PASSED=$(json_field "$ROOT/整改记录/第四轮/报价重算校验.json" passed)
+PASSED=$(json_field "$ROOT/证据/第四轮/报价重算校验.json" passed)
 record "报价重算校验" "$RC" 3 "$PASSED" 0
 echo ""
 

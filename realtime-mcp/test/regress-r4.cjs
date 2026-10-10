@@ -13,7 +13,7 @@ const http=require('http');
 const {spawn}=require('child_process');
 const crypto=require('crypto');
 
-const OUT=path.resolve(__dirname,'..','整改记录','第四轮');
+const OUT=path.resolve(__dirname,'..','证据','第四轮');
 const STAGE=(process.argv.includes('--stage')?process.argv[process.argv.indexOf('--stage')+1]:null)||'run';
 const results=[];
 const rec=(id,scene,expect,actual,pass,evidence)=>{

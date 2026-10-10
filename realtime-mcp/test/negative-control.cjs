@@ -49,7 +49,7 @@ function runFe(dir){
   execFileSync(NODE_BIN,[path.join(dir,'test','regress-r4-fe.js'),'--stage','negctl'],
    {cwd:dir,stdio:'pipe',timeout:240000});
  }catch(e){/* 退出码非 0 也可能有结果文件 */}
- const f=path.join(dir,'整改记录','第四轮','regress-r4-fe-negctl.json');
+ const f=path.join(dir,'证据','第四轮','regress-r4-fe-negctl.json');
  if(!fs.existsSync(f))return null;
  try{return JSON.parse(fs.readFileSync(f,'utf8')).results;}catch(e){return null;}
 }
@@ -86,8 +86,8 @@ const NODE_BIN=process.execPath;
   console.log((r.detected?'✅ ':'❌ ')+r.id+' '+r.desc+
    (r.actuallyFailed&&r.actuallyFailed.length?(' → 变红 '+r.actuallyFailed.join(',')):'')+
    (r.reason?(' ['+r.reason+']'):''));
- fs.mkdirSync(path.join(ROOT,'整改记录','第四轮'),{recursive:true});
- fs.writeFileSync(path.join(ROOT,'整改记录','第四轮','negative-control.json'),
+ fs.mkdirSync(path.join(ROOT,'证据','第四轮'),{recursive:true});
+ fs.writeFileSync(path.join(ROOT,'证据','第四轮','negative-control.json'),
   JSON.stringify({at:new Date().toISOString(),
    note:'撤销单处修复后对应用例是否变红；变红说明用例有判别力',total:results.length,detected,results},null,2));
  process.exitCode=detected===applied?0:1;

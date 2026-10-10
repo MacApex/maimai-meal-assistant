@@ -232,7 +232,7 @@ const QUOTE_20={productPrice:2000,originalPrice:2000,discount:0,price:2000,deliv
               {productCode:'DRINK_A',productName:'MOCK 茶',quantity:1,subtotal:500}]};
 const http=require('http'),fsx=require('fs');
 const STAGE=(process.argv.includes('--stage')?process.argv[process.argv.indexOf('--stage')+1]:null)||'run';
-const OUT=path.resolve(__dirname,'..','整改记录','第四轮');
+const OUT=path.resolve(__dirname,'..','证据','第四轮');
 (async()=>{
  const wd=setTimeout(()=>{console.error('看门狗超时（120s），强制结束');process.exit(3);},120000);
  try{

@@ -214,7 +214,7 @@ const overall=sha(entries.map(e=>e.target+'/'+e.file+'='+e.state).join('\n'));
 console.log('\n五入口组合校验和：'+short(overall));
 
 try{
- const outDir=path.join(ROOT,'整改记录','第三轮','证据');
+ const outDir=path.join(ROOT,'证据','第三轮');
  fs.mkdirSync(outDir,{recursive:true});
  fs.writeFileSync(path.join(outDir,(CHECK?'build-check':'build-generate')+'-hashes.json'),
   JSON.stringify({at:new Date().toISOString(),mode:CHECK?'check':'generate',src:SRC,

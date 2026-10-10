@@ -5,7 +5,7 @@
 'use strict';
 const fs=require('fs'),path=require('path');
 const ROOT=process.env.SCAN_ROOT||path.resolve(__dirname,'..');
-const OUT=process.env.SCAN_OUT||path.join(ROOT,'整改记录','secret-scan.json');
+const OUT=process.env.SCAN_OUT||path.join(ROOT,'证据','secret-scan.json');
 
 /* 允许出现的占位形式：文档里的 MCD_MCP_TOKEN、YOUR_MCP_TOKEN 等环境变量名 */
 const ALLOW_PLACEHOLDER=/YOUR_[A-Z_]*TOKEN|MCD_MCP_TOKEN|Bearer <已填写>|Bearer YOUR_|\$\{?[A-Z_]*TOKEN\}?|<你的|占位符|环境变量占位/;

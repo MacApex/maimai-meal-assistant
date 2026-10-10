@@ -297,7 +297,7 @@ POST https://mcp.mcd.cn  →  HTTP 401
 - `quote-recheck.cjs`：3/3，退出码 0（断言本次请求的 cartSignature / 返回金额 / 规格 / 签名 / 版本，不依赖旧 DOM）
 
 `run-all.sh` 全量复跑：9 个套件全部 PASS，退出码 0。
-最终一次复跑见 `realtime-mcp/整改记录/第四轮/run-all-第四轮-final.log`。
+最终一次复跑见 `realtime-mcp/证据/第四轮/run-all-第四轮-final.log`。
 
 ### 本轮自查出的一处"假生效"
 

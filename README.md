@@ -2,6 +2,13 @@
 
 仓库地址：https://github.com/MacApex/maimai-meal-assistant
 
+<p align="center">
+<img src="screenshots/01-首页.png" width="30%" alt="首页：两个入口，智能选餐助手与经典选餐">
+<img src="screenshots/10-第3题.png" width="30%" alt="第 3 题：算上你已经有的咖啡和饮品">
+<img src="screenshots/09-结果页.png" width="30%" alt="结果页：只补缺口，2 人已有 1 杯饮品只补 1 杯">
+</p>
+<p align="center"><sub>左：打开即用的首页　中：第三题先问清"你已经有什么"　右：推荐结果只补缺口、每条理由都写在页面上</sub></p>
+
 ## 项目介绍
 
 一个人或几个人站在点餐页面前，卡住的往往不是"菜单里有什么"——查菜单 App 早就够了。
@@ -29,6 +36,14 @@
 
 菜单和推荐解决"有什么"，本项目解决**"你已经决定过什么"**——
 把模糊的"今天吃点什么"，变成一餐能解释、能自己改、能回头的饭。
+
+<p align="center">
+<img src="screenshots/10-第1题.png" width="23%" alt="第 1 题：几个人吃">
+<img src="screenshots/10-第4题.png" width="23%" alt="第 4 题：想吃什么感觉">
+<img src="screenshots/10-第6题.png" width="23%" alt="第 6 题：要不要尝新">
+<img src="screenshots/10-第8题.png" width="23%" alt="第 8 题：记忆授权，逐项独立开关">
+</p>
+<p align="center"><sub>八题逐问，每一题都真的会改变算法结果——不是八个页面换文案</sub></p>
 
 ---
 
@@ -149,6 +164,13 @@ node tests/browser-check.cjs     # 浏览器验收（需本机 Playwright）
 - 随时可返回修改，答案保留；结果页有"返回修改答案"出口
 - 首页保留两个入口：更大的"智能选餐助手"，和较小但显眼的"经典选餐"
 
+<p align="center">
+<img src="screenshots/08-经典选餐.png" width="30%" alt="经典选餐：全分类自己挑">
+<img src="screenshots/07-轮换计划展开.png" width="30%" alt="多顿轮换计划：来源写明是选餐记录，不是订单">
+<img src="screenshots/03-200%字体.png" width="30%" alt="200% 字体放大下仍可用">
+</p>
+<p align="center"><sub>经典自主选餐入口　·　多顿轮换如实标注来源与重复　·　200% 缩放下布局不破</sub></p>
+
 ---
 
 ## 数据模式说明（重要）
@@ -198,8 +220,12 @@ npx 缓存、Playwright 下载目录），无需修改代码。
 产物一致性：`build-all.js` 会输出每个入口的 SHA256 组合校验和；
 `--check` 只比对不写入，有漂移时退出码为 1，可直接用于 CI。
 
-实测结果见 [`TEST_REPORT.md`](TEST_REPORT.md)；
-未解决项与确需用户决定的内容见 [`整改记录/第二轮/整改矩阵.md`](整改记录/第二轮/整改矩阵.md)。
+实测结果见 [`TEST_REPORT.md`](TEST_REPORT.md)。
+真实接入版的验收对照（逐缺陷证据、八步映射实现程度、真实调用/隔离模拟/未测矩阵）
+见 [`realtime-mcp/证据/第四轮验收对照.md`](realtime-mcp/证据/第四轮验收对照.md)。
+
+诚实边界：未解决项不藏在别处。已知限制写在下面一节，
+**未验证的主张一律标注未验证**，不写成已完成。
 
 ---
 
@@ -209,7 +235,7 @@ npx 缓存、Playwright 下载目录），无需修改代码。
 - 份量按粗略规则搭配（每人 1 主食、每 2 人 1 共享小食、每人 1 饮品），**不代表营养或精准饱腹**
 - 轮换时若目录内可选项不足，会如实标出重复，不保证绝不重复
 - 多顿轮换每顿使用前需要重新核验人数、价格与供应；本项目不安排定时任务
-- 真实只读接入的「门店 → 菜单 → 详情/规格 → 官方算价」链路已在授权只读环境用少量受控请求端到端复验（证据见 `realtime-mcp/整改记录/第四轮/`）；券资格核验因官方未提供可用只读工具，状态标为 `unavailable`，**未标成已接通**
+- 真实只读接入的「门店 → 菜单 → 详情/规格 → 官方算价」链路已在授权只读环境用少量受控请求端到端复验（证据见 `realtime-mcp/证据/第四轮/`）；券资格核验因官方未提供可用只读工具，状态标为 `unavailable`，**未标成已接通**
 - 仅在 Chromium 上测试过；Safari／VoiceOver 与真机未覆盖
 
 ---

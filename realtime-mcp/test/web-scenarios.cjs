@@ -12,7 +12,7 @@ const fs=require('fs'),path=require('node:path');
 const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'/Users/maxima/.npm/_npx/31e32ef8478fbf80/node_modules/playwright');
 const EXE=process.env.CHROMIUM_PATH||'/Users/maxima/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-arm64/chrome-headless-shell'; /* 跨机可用环境变量覆盖 */
 const OUT=path.resolve(__dirname,'..','证据');
-const JOUT=path.resolve(__dirname,'..','整改记录','第四轮');
+const JOUT=path.resolve(__dirname,'..','证据','第四轮');
 const WEB='http://127.0.0.1:8796';
 const results=[];
 const rec=(id,scene,input,expect,actual,pass,shot)=>{

@@ -25,7 +25,7 @@
 
 ==============================================
  汇总（PASS/FAIL 依据退出码；"通过=x/y" 取自各套件自报 JSON，
-       少数套件 JSON 未落在 整改记录/第四轮 下故汇总列显示 0，以退出码与各自 JSON 为准）
+       少数套件 JSON 未落在 证据/第四轮 下故汇总列显示 0，以退出码与各自 JSON 为准）
   离线反例-网关侧   PASS  退出码=0   regress-r4-post.json  4/4
   离线反例-前端     PASS  退出码=0   regress-r4-fe-post.json 10/10
   网关安全          PASS  退出码=0   gateway-security.json 17/17
